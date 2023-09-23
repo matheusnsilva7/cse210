@@ -1,0 +1,12 @@
+Date: 2023-09-23 11:57:39
+Prompt: Who was the most interesting person I interacted with today?
+Response: 2
+
+Date: 2023-09-23 11:57:49
+Prompt: How did I see the hand of the Lord in my life today?
+Response: hello world
+
+Date: 2023-09-23 12:00:34
+Prompt: Who was the most interesting person I interacted with today?
+Response: i dont know
+
