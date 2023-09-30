@@ -6,10 +6,28 @@ class Program
 {
     static void Main(string[] args)
     {
+        string scriptureFilePath;
+
         Console.WriteLine("Welcome to the Scripture Memorizer!");
+
+        while (true)
+        {
+            Console.Write("Enter the file path for the scripture (scripture.txt): ");
+            scriptureFilePath = Console.ReadLine();
+
+            if (File.Exists(scriptureFilePath))
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Error: The provided scripture file does not exist. Please try again.");
+            }
+        }
+
         Console.WriteLine("Press Enter to reveal the scripture or type 'quit' to exit.");
 
-        Scripture scripture = new Scripture("scripture.txt");
+        Scripture scripture = new Scripture(scriptureFilePath);
 
         while (true)
         {
