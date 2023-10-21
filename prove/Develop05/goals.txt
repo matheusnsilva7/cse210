@@ -1,6 +1,6 @@
-45
+48
 Simple Goal:name-description-30-True
 Eternal Goal:name-description-30
 Checklist Goal:2-2-5-2-3-200
 Simple Goal:3-3-5-True
-Simple Goal:1-2-3-False
+Simple Goal:1-2-3-True
