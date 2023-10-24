@@ -12,6 +12,6 @@ class DVD : LibraryItem
 
     public override string GetDetails()
     {
-        return base.GetDetails() + $", Director: {_director}, Duration: {_duration} minutes";
+        return base.GetDetails() + $", Director: {_director}, Duration: {_duration}";
     }
 }

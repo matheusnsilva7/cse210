@@ -52,6 +52,7 @@ class Program
         if (File.Exists(membersFilePath))
         {
             string[] lines = File.ReadAllLines(membersFilePath);
+
             foreach (string line in lines)
             {
                 string[] parts = line.Split(',');
@@ -83,7 +84,7 @@ class Program
             foreach (string line in lines)
             {
                 string[] parts = line.Split(',');
-                if (parts.Length >= 4)
+                if (parts.Length >= 2)
                 {
                     string itemType = parts[5];
                     string title = parts[0];
@@ -97,24 +98,24 @@ class Program
                         {
                             string isbn = parts[3];
                             string genre = parts[4];
-                            newItem = new Book(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, isbn.Split(" ")[1], genre.Split(" ")[1]);
+                            newItem = new Book(title.Split(": ")[1], authorDirectorArtist.Split(": ")[1], publicationYear, isbn.Split(": ")[1], genre.Split(": ")[1]);
                         }
                         else if (itemType == "DVD")
                         {
-                            string director = parts[4];
+                            string director = parts[3];
                             int duration;
-                            if (int.TryParse(parts[5], out duration))
+                            if (int.TryParse(parts[4].Split(": ")[1].Trim(), out duration))
                             {
-                                newItem = new DVD(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, director.Split(" ")[1], duration);
+                                newItem = new DVD(title.Split(": ")[1], authorDirectorArtist.Split(": ")[1], publicationYear, director.Split(": ")[1], duration);
                             }
                         }
                         else if (itemType == "Magazine")
                         {
                             int issueNumber;
-                            if (int.TryParse(parts[4], out issueNumber))
+                            if (int.TryParse(parts[3].Split(": ")[1], out issueNumber))
                             {
-                                string publisher = parts[5];
-                                newItem = new Magazine(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, issueNumber, publisher.Split(" ")[1]);
+                                string publisher = parts[4];
+                                newItem = new Magazine(title.Split(": ")[1], authorDirectorArtist.Split(": ")[1], publicationYear, issueNumber, publisher.Split(": ")[1]);
                             }
                         }
 
