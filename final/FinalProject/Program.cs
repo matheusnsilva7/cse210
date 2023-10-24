@@ -253,7 +253,7 @@ class Program
             {
                 libraryItems.Add(newItem);
                 Console.WriteLine("Item added successfully.");
-                SaveLibraryItemsToFile(); // Save library items to the file
+                SaveLibraryItemsToFile();
             }
         }
         else
