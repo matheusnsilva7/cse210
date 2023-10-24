@@ -296,8 +296,9 @@ class Program
     {
         Console.Write("Enter the title of the item you want to borrow: ");
         string titleToBorrow = Console.ReadLine();
-        LibraryItem itemToBorrow = libraryItems.FirstOrDefault(item =>
-    string.Equals(item._title, titleToBorrow, StringComparison.OrdinalIgnoreCase));
+        LibraryItem itemToBorrow = libraryItems
+        .FirstOrDefault(item => item._title.Equals(titleToBorrow, StringComparison.OrdinalIgnoreCase));
+
         if (itemToBorrow != null)
         {
 
