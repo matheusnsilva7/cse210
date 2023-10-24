@@ -268,24 +268,24 @@ class Program
 
         foreach (LibraryItem item in libraryItems)
         {
-            Console.WriteLine(item.Title);
-            Console.WriteLine(item.Author);
-            Console.WriteLine(item.PublicationYear);
+            Console.WriteLine(item._title);
+            Console.WriteLine(item._author);
+            Console.WriteLine(item._publicationYear);
 
             if (item is Book book)
             {
-                Console.WriteLine(book.ISBN);
-                Console.WriteLine(book.Genre);
+                Console.WriteLine(book._ISBN);
+                Console.WriteLine(book._genre);
             }
             else if (item is DVD dvd)
             {
-                Console.WriteLine(dvd.Director);
-                Console.WriteLine(dvd.Duration);
+                Console.WriteLine(dvd._director);
+                Console.WriteLine(dvd._duration);
             }
             else if (item is Magazine magazine)
             {
-                Console.WriteLine(magazine.IssueNumber);
-                Console.WriteLine(magazine.Publisher);
+                Console.WriteLine(magazine._issueNumber);
+                Console.WriteLine(magazine._publisher);
             }
 
             Console.WriteLine();
@@ -297,12 +297,12 @@ class Program
         Console.Write("Enter the title of the item you want to borrow: ");
         string titleToBorrow = Console.ReadLine();
         LibraryItem itemToBorrow = libraryItems.FirstOrDefault(item =>
-    string.Equals(item.Title, titleToBorrow, StringComparison.OrdinalIgnoreCase));
+    string.Equals(item._title, titleToBorrow, StringComparison.OrdinalIgnoreCase));
         if (itemToBorrow != null)
         {
 
             user.BorrowItem(itemToBorrow);
-            Console.WriteLine($"You have successfully borrowed '{itemToBorrow.Title}'.");
+            Console.WriteLine($"You have successfully borrowed '{itemToBorrow._title}'.");
             SaveLibraryItemsToFile();
         }
         else
@@ -318,13 +318,13 @@ class Program
         string titleToReturn = Console.ReadLine();
 
         LibraryItem itemToReturn = libraryItems
-        .FirstOrDefault(item => item.Title.Equals(titleToReturn, StringComparison.OrdinalIgnoreCase));
+        .FirstOrDefault(item => item._title.Equals(titleToReturn, StringComparison.OrdinalIgnoreCase));
 
         if (itemToReturn != null)
         {
             // Return the item
             user.ReturnItem(itemToReturn);
-            Console.WriteLine($"You have successfully returned '{itemToReturn.Title}'.");
+            Console.WriteLine($"You have successfully returned '{itemToReturn._title}'.");
             SaveLibraryItemsToFile();
         }
         else

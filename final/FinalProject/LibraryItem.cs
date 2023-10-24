@@ -1,18 +1,18 @@
 class LibraryItem
 {
-    public string Title;
-    public string Author ;
-    public int PublicationYear ;
+    public string _title;
+    public string _author ;
+    public int _publicationYear ;
 
     public LibraryItem(string title, string author, int publicationYear)
     {
-        Title = title;
-        Author = author;
-        PublicationYear = publicationYear;
+        _title = title;
+        _author = author;
+        _publicationYear = publicationYear;
     }
 
     public virtual string GetDetails()
     {
-        return $"Title: {Title}, Author: {Author}, Year: {PublicationYear}";
+        return $"Title: {_title}, Author: {_author}, Year: {_publicationYear}";
     }
 }

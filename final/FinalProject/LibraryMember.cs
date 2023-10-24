@@ -1,26 +1,26 @@
 class LibraryMember
 {
-    protected string _Name;
-    protected List<LibraryItem> _BorrowedItems;
+    protected string _name;
+    protected List<LibraryItem> _borrowedItems;
 
     public LibraryMember(string name)
     {
-        _Name = name;
-        _BorrowedItems = new List<LibraryItem>();
+        _name = name;
+        _borrowedItems = new List<LibraryItem>();
     }
 
     public string GetName()
     {
-        return _Name;
+        return _name;
     }
 
     public void BorrowItem(LibraryItem item)
     {
-        _BorrowedItems.Add(item);
+        _borrowedItems.Add(item);
     }
 
     public void ReturnItem(LibraryItem item)
     {
-        _BorrowedItems.Remove(item);
+        _borrowedItems.Remove(item);
     }
 }

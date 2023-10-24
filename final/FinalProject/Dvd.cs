@@ -1,17 +1,17 @@
 class DVD : LibraryItem
 {
-    public string Director;
-    public int Duration;
+    public string _director;
+    public int _duration;
 
     public DVD(string title, string author, int publicationYear, string director, int duration)
         : base(title, author, publicationYear)
     {
-        Director = director;
-        Duration = duration;
+        _director = director;
+        _duration = duration;
     }
 
     public override string GetDetails()
     {
-        return base.GetDetails() + $", Director: {Director}, Duration: {Duration} minutes";
+        return base.GetDetails() + $", Director: {_director}, Duration: {_duration} minutes";
     }
 }

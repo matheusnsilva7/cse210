@@ -14,17 +14,17 @@ class LibraryCatalog
 
     public List<LibraryItem> SearchByTitle(string title)
     {
-        return catalog.FindAll(item => item.Title.Contains(title));
+        return catalog.FindAll(item => item._title.Contains(title));
     }
 
     public List<LibraryItem> SearchByAuthor(string author)
     {
-        return catalog.FindAll(item => item.Author.Contains(author));
+        return catalog.FindAll(item => item._author.Contains(author));
     }
 
     public List<LibraryItem> SearchByGenre(string genre)
     {
-        return catalog.FindAll(item => item is Book && ((Book)item).Genre.Contains(genre));
+        return catalog.FindAll(item => item is Book && ((Book)item)._genre.Contains(genre));
     }
 
     public List<LibraryItem> FilterAvailableItems(Library library)

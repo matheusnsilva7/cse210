@@ -1,17 +1,17 @@
 class Magazine : LibraryItem
 {
-    public int IssueNumber ;
-    public string Publisher ;
+    public int _issueNumber;
+    public string _publisher;
 
     public Magazine(string title, string author, int publicationYear, int issueNumber, string publisher)
         : base(title, author, publicationYear)
     {
-        IssueNumber = issueNumber;
-        Publisher = publisher;
+        _issueNumber = issueNumber;
+        _publisher = publisher;
     }
 
     public override string GetDetails()
     {
-        return base.GetDetails() + $", Issue Number: {IssueNumber}, Publisher: {Publisher}";
+        return base.GetDetails() + $", Issue Number: {_issueNumber}, Publisher: {_publisher}";
     }
 }
