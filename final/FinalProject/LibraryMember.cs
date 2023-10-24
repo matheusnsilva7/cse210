@@ -9,6 +9,11 @@ class LibraryMember
         _BorrowedItems = new List<LibraryItem>();
     }
 
+    public string GetName()
+    {
+        return _Name;
+    }
+
     public void BorrowItem(LibraryItem item)
     {
         _BorrowedItems.Add(item);

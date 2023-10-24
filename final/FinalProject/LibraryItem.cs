@@ -1,8 +1,8 @@
 class LibraryItem
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int PublicationYear { get; set; }
+    public string Title;
+    public string Author ;
+    public int PublicationYear ;
 
     public LibraryItem(string title, string author, int publicationYear)
     {

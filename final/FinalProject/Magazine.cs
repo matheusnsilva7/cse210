@@ -1,7 +1,7 @@
 class Magazine : LibraryItem
 {
-    private int IssueNumber ;
-    private string Publisher ;
+    public int IssueNumber ;
+    public string Publisher ;
 
     public Magazine(string title, string author, int publicationYear, int issueNumber, string publisher)
         : base(title, author, publicationYear)
