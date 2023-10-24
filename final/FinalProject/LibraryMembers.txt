@@ -1,2 +1,3 @@
 matheus,LibraryUser
 matheus1,LibraryStaff
+lucas,LibraryStaff

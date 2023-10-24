@@ -83,45 +83,47 @@ class Program
             foreach (string line in lines)
             {
                 string[] parts = line.Split(',');
-                string itemType = parts[5];
-                string title = parts[0];
-                string authorDirectorArtist = parts[1];
-                string yearPart = parts[2].Substring("Year: ".Length);
-                if (int.TryParse(yearPart, out int publicationYear))
+                if (parts.Length >= 4)
                 {
-                    LibraryItem newItem = null;
+                    string itemType = parts[5];
+                    string title = parts[0];
+                    string authorDirectorArtist = parts[1];
+                    string yearPart = parts[2].Substring("Year: ".Length);
+                    if (int.TryParse(yearPart, out int publicationYear))
+                    {
+                        LibraryItem newItem = null;
 
-                    if (itemType == "Book")
-                    {
-                        string isbn = parts[3];
-                        string genre = parts[4];
-                        newItem = new Book(title, authorDirectorArtist, publicationYear, isbn, genre);
-                    }
-                    else if (itemType == "DVD")
-                    {
-                        string director = parts[4];
-                        int duration;
-                        if (int.TryParse(parts[5], out duration))
+                        if (itemType == "Book")
                         {
-                            newItem = new DVD(title, authorDirectorArtist, publicationYear, director, duration);
+                            string isbn = parts[3];
+                            string genre = parts[4];
+                            newItem = new Book(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, isbn.Split(" ")[1], genre.Split(" ")[1]);
                         }
-                    }
-                    else if (itemType == "Magazine")
-                    {
-                        int issueNumber;
-                        if (int.TryParse(parts[4], out issueNumber))
+                        else if (itemType == "DVD")
                         {
-                            string publisher = parts[5];
-                            newItem = new Magazine(title, authorDirectorArtist, publicationYear, issueNumber, publisher);
+                            string director = parts[4];
+                            int duration;
+                            if (int.TryParse(parts[5], out duration))
+                            {
+                                newItem = new DVD(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, director.Split(" ")[1], duration);
+                            }
                         }
-                    }
+                        else if (itemType == "Magazine")
+                        {
+                            int issueNumber;
+                            if (int.TryParse(parts[4], out issueNumber))
+                            {
+                                string publisher = parts[5];
+                                newItem = new Magazine(title.Split(" ")[1], authorDirectorArtist.Split(" ")[1], publicationYear, issueNumber, publisher.Split(" ")[1]);
+                            }
+                        }
 
-                    if (newItem != null)
-                    {
-                        libraryItems.Add(newItem);
+                        if (newItem != null)
+                        {
+                            libraryItems.Add(newItem);
+                        }
                     }
                 }
-
             }
         }
     }
@@ -268,24 +270,24 @@ class Program
 
         foreach (LibraryItem item in libraryItems)
         {
-            Console.WriteLine(item._title);
-            Console.WriteLine(item._author);
-            Console.WriteLine(item._publicationYear);
+            Console.WriteLine($"Title: {item._title}");
+            Console.WriteLine($"Author: {item._author}");
+            Console.WriteLine($"Year: {item._publicationYear}");
 
             if (item is Book book)
             {
-                Console.WriteLine(book._ISBN);
-                Console.WriteLine(book._genre);
+                Console.WriteLine($"ISBN: {book._ISBN}");
+                Console.WriteLine($"Genre: {book._genre}");
             }
             else if (item is DVD dvd)
             {
-                Console.WriteLine(dvd._director);
-                Console.WriteLine(dvd._duration);
+                Console.WriteLine($"Director: {dvd._director}");
+                Console.WriteLine($"Duration: {dvd._duration}");
             }
             else if (item is Magazine magazine)
             {
-                Console.WriteLine(magazine._issueNumber);
-                Console.WriteLine(magazine._publisher);
+                Console.WriteLine($"IssueNumber: {magazine._issueNumber}");
+                Console.WriteLine($"Publisher: {magazine._publisher}");
             }
 
             Console.WriteLine();
@@ -296,6 +298,7 @@ class Program
     {
         Console.Write("Enter the title of the item you want to borrow: ");
         string titleToBorrow = Console.ReadLine();
+
         LibraryItem itemToBorrow = libraryItems
         .FirstOrDefault(item => item._title.Equals(titleToBorrow, StringComparison.OrdinalIgnoreCase));
 
