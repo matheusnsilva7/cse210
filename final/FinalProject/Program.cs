@@ -377,7 +377,7 @@ class Program
                         BorrowItem(user);
                         break;
                     case 3:
-                        // Return Item
+                        ReturnItem(user);
                         break;
                     case 4:
                         if (user is LibraryStaff)
